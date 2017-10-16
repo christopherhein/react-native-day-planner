@@ -2,23 +2,19 @@
 
 'use strict';
 
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import {
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
-
-const {
-  PropTypes,
-} = React;
-
-export const CalendarEvent = React.createClass({
+export default class CalendarEvent extends Component {
   propTypes: {
     style: View.propTypes.style,
     title: PropTypes.string.isRequired,
-  },
+  }
 
   render() {
     const { style, title } = this.props;
@@ -27,8 +23,8 @@ export const CalendarEvent = React.createClass({
         <Text>{title}</Text>
       </View>
     );
-  },
-});
+  }
+}
 
 const styles = StyleSheet.create({
   calendarEvent: {

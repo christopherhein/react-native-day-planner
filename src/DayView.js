@@ -1,8 +1,10 @@
+
 /* @flow */
 
 'use strict';
 
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import {
   ScrollView,
   StyleSheet,
@@ -10,18 +12,15 @@ import {
   View,
 } from 'react-native';
 
-const {
-  PropTypes,
-} = React;
+var createReactClass = require('create-react-class');
 
 import { calculateHeightFromDates } from './utils';
 import { CurrentTimeIndicator } from './CurrentTimeIndicator';
 import moment from 'moment';
 
 const DEFAULT_HOUR_HEIGHT = 60;
-export const DayView = React.createClass({
+export const DayView = createReactClass({
   propTypes: {
-    contentOffset: PropTypes.object,
     dayStartDate: PropTypes.instanceOf(Date).isRequired,
     events: PropTypes.array.isRequired,
     currentTime: PropTypes.instanceOf(Date),
@@ -113,7 +112,6 @@ export const DayView = React.createClass({
 
   render() {
     const {
-      contentOffset,
       currentTime,
       onLayout,
       onScroll,
@@ -128,7 +126,6 @@ export const DayView = React.createClass({
 
     return (
       <ScrollView
-        contentOffset={contentOffset}
         scrollEnabled={scrollEnabled}
         onLayout={onLayout}
         scrollEventThrottle={1}
