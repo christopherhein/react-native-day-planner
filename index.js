@@ -10,3 +10,4 @@ export {
   calculateDateFromPositionOffset,
   calculateDateFromHourOffset,
 } from './src/utils';
+
